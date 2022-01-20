@@ -20,7 +20,7 @@ const Header = () => {
     const [displayprod, setdisplayprod] = useState([])
 
     const { cartval, productData, login, setlogin } = useContext(store)
-    console.log(login)
+   
 
     const PostUser = async () => {
         if (userData.firstName != "") {
@@ -97,7 +97,6 @@ const Header = () => {
 
     }
 
-    console.log(text)
     return (
         <nav class="navbar navbar-expand-md navbar-dark " style={{ background: "#51C9A6" }}>
             <div class="container-fluid">

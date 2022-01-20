@@ -63,12 +63,12 @@ const Cart = () => {
 
         if (address != "") {
             const res = await PostPayApi({ cost: total, name: login.firstName, email: login.email, phone: login.mobile })
-            console.log(res)
+          
             const info = {
                 action: 'https://securegw-stage.paytm.in/order/process',
                 params: res.data
             }
-            console.log(info.params)
+            
             post(info)
 
         } else {
@@ -85,7 +85,7 @@ const Cart = () => {
     }, [])
 
 
-    console.log(address)
+  
 
     return (
 
@@ -155,7 +155,7 @@ const Cart = () => {
                                 <div class="d-flex justify-content-between mt-3">
                                     <button onClick={() => history.push("/")} class="col-md-6 btn btn-outline-primary">Continue Shopping</button>
                                     <button class="col-md-5 btn btn-outline-success" onClick={() => {
-                                        console.log(login)
+                                       
                                         if (login != "null") {
                                             PlaceOrder()
                                         } else {

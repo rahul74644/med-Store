@@ -15,7 +15,7 @@ export const StoreProvider = (prop) => {
 
     const GetMedicineData = async () => {
         const res = await getMedicineData();
-        console.log(res)
+     
         setproductData(res.data)
     }
 

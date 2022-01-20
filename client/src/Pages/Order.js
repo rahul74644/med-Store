@@ -16,7 +16,7 @@ const Order = () => {
     const fetchOrder = async () => {
 
         const res = await GetOrderApi({email :login.email})
-        console.log(res)
+       
         localStorage.setItem("user", JSON.stringify(res.data))
         setlogin(res.data)
         setorderData(res.data.orders)
