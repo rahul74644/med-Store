@@ -169,7 +169,7 @@ app.post('/callback', (req, res) => {
                 post_res.on('end', function () {
                     var _results = JSON.parse(response);
 
-                    res.redirect(`http://localhost:5000/success?${_results.STATUS},${_results.BANKTXNID},${_results.TXNAMOUNT},${_results.BANKNAME},${_results.ORDERID}`)
+                    res.redirect(`https://medstoreapp.herokuapp.com/success?${_results.STATUS},${_results.BANKTXNID},${_results.TXNAMOUNT},${_results.BANKNAME},${_results.ORDERID}`)
                 });
             });
 
