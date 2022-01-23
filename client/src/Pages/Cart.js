@@ -156,7 +156,7 @@ const Cart = () => {
                                     <button onClick={() => history.push("/")} class="col-md-6 btn btn-outline-primary">Continue Shopping</button>
                                     <button class="col-md-5 btn btn-outline-success" onClick={() => {
                                        
-                                        if (login != "null") {
+                                        if (login.email) {
                                             PlaceOrder()
                                         } else {
                                             Notiflix.Notify.failure("Please Login First")

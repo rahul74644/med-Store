@@ -13,13 +13,14 @@ const Order = () => {
 
     const [orderData, setorderData] = useState(login.orders)
 
-    const fetchOrder = async () => {
 
-        const res = await GetOrderApi({email :login.email})
+    const fetchOrder = async () => {
        
-        localStorage.setItem("user", JSON.stringify(res.data))
-        setlogin(res.data)
-        setorderData(res.data.orders)
+        const res = await GetOrderApi({email :login.email})
+        console.log(res)
+        localStorage.setItem("user", JSON.stringify(res.data[0]))
+        setlogin(res.data[0])
+        setorderData(res.data[0].orders)
     }
 
     useEffect(() => {

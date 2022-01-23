@@ -51,7 +51,7 @@ app.post('/api/createuser', (req, res) => {
         } else {
             res.send("User Exist")
         }
-        console.log(exist)
+
     })
 
 
@@ -80,11 +80,11 @@ app.post('/api/getuser', (req, res) => {
 //// orders ////////
 
 app.post("/api/getorder", (req, res) => {
-
-    console.log(req.body)
-
+   
     db.collection('users').find({ email: req.body.email }).toArray((err, result) => {
-        res.send(result[0])
+        if (err) console.log(err)
+        console.log(result)
+        res.send(result)
     })
 
 })
@@ -118,7 +118,7 @@ app.post("/payment", async (req, res) => {
     params['ORDER_ID'] = 'TEST_' + new Date().getTime();
     params['CUST_ID'] = config.PaytmConfig.customer;
     params['TXN_AMOUNT'] = `${req.body.cost}`;
-    params['CALLBACK_URL'] = 'http://localhost:5000/callback';
+    params['CALLBACK_URL'] = 'https://medstoreapp.herokuapp.com/callback';
     params['EMAIL'] = req.body.email;
     params['MOBILE_NO'] = req.body.phone;
 
@@ -177,8 +177,6 @@ app.post('/callback', (req, res) => {
             post_req.write(post_data);
             post_req.end();
         })
-    } else {
-        console.log('checksum mismatch')
     }
 })
 

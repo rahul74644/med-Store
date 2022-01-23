@@ -38,7 +38,7 @@ const Header = () => {
                                     Notiflix.Notify.success("Login Success");
                                     document.querySelectorAll(".btn-close")[1].click()
                                     setlogin(res.data[0])
-                                    localStorage.setItem("user", JSON.stringify(res.data))
+                                    localStorage.setItem("user", JSON.stringify(res.data[0]))
                                 }
                             } else {
                                 Notiflix.Notify.failure("Please Enter confirm Password")
